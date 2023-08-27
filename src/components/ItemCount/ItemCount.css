@@ -1,0 +1,23 @@
+.Counter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+.Control {
+  display: flex;
+  height: 2.5rem;
+  padding: 0rem 1.875rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0.3125rem;
+  background: #6d72c3;
+  
+}
+.Button{
+  background: #6d72c3;
+  border: none;
+  cursor: pointer;
+}

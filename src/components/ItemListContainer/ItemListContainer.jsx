@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts, getProductByCategory } from "../asyncProducts";
-import { ItemList } from "./ItemList";
+import { getProducts, getProductByCategory } from "../../asyncProducts";
+import { ItemList } from "../ItemList/ItemList";
+import './ItemListContainer.css'
 
 export const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([])

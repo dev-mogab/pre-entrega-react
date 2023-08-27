@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../asyncProducts";
-import { ItemDetail } from "./ItemDetail";
+import { getProductById } from "../../asyncProducts";
+import { ItemDetail } from "../ItemDetail/ItemDetail";
 
 export const ItemDetailContainer = () => {
   const[product, setProduct] = useState(null)

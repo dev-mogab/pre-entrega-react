@@ -1,25 +1,23 @@
-import { ItemCount } from "./ItemCount";
+import { ItemCount } from "../ItemCount/ItemCount";
+import './ItemDetail.css'
 
 export const ItemDetail =({ id, name, img, category, description, price, stock }) => {
   return(
-    <div>
+    <div className="detail-container">
       <header>
         <h2>
           {name}
         </h2>
       </header>
       <div>
-        <img src={img} alt={name} />
+        <img src={img} alt={name} className="detail-image"/>
       </div>
-      <main>
+      <main className="detail-main">
         <p>
-          Category: {category}
+          Price: ${price}
         </p>
         <p>
           Description: {description}
-        </p>
-        <p>
-          Price: ${price}
         </p>
       </main>
       <footer>
