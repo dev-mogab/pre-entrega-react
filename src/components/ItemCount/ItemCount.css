@@ -6,6 +6,7 @@
   align-self: stretch;
 }
 .Control {
+  color: aliceblue;
   display: flex;
   height: 2.5rem;
   padding: 0rem 1.875rem;
@@ -14,9 +15,9 @@
   align-self: stretch;
   border-radius: 0.3125rem;
   background: #6d72c3;
-  
 }
 .Button{
+  color: aliceblue;
   background: #6d72c3;
   border: none;
   cursor: pointer;

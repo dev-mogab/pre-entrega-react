@@ -1,26 +1,40 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../asyncProducts";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
-  const[product, setProduct] = useState(null)
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState();
 
-  const { itemId } = useParams()
+  const { itemId } = useParams();
 
   useEffect(() => {
-    getProductById(itemId)
-      .then(res => {
-        setProduct(res)
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  }, [itemId])
+    setLoading(true);
 
-  return(
+    const db = getFirestore();
+
+    const docRef = doc(db, "ItemList", itemId);
+
+    getDoc(docRef)
+      .then((res) => {
+        const data = res.data();
+        const adaptedProd = { id: res.id, ...data };
+        setProduct(adaptedProd);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [itemId]);
+
+  if (loading) return <div>Loading...</div>;
+
+  return (
     <div>
-      <ItemDetail {...product}/>
+      <ItemDetail {...product} />
     </div>
-  )
-}
+  );
+};
